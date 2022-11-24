@@ -6,14 +6,14 @@
 /*   By: naokifuse <naokifuse@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:55:32 by naoki             #+#    #+#             */
-/*   Updated: 2022/11/24 13:41:09 by naokifuse        ###   ########.fr       */
+/*   Updated: 2022/11/24 14:53:54 by naokifuse        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <stdlib.h>
+# include <stdlib.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
