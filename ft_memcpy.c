@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: naoki <naoki@student.42.fr>                +#+  +:+       +#+        */
+/*   By: naokifuse <naokifuse@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:15:53 by naoki             #+#    #+#             */
-/*   Updated: 2022/11/23 21:14:18 by naoki            ###   ########.fr       */
+/*   Updated: 2022/11/26 11:39:25 by naokifuse        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	while (n--)
-		*(unsigned char *)(dst++) = *(unsigned char *)(src++);
+	size_t	i;
+
+	if (dst == src)
+		return (dst);
+	i = 0;
+	while (i < n)
+	{
+		*(unsigned char *)(dst + i) = *(unsigned char *)(src + i);
+		i++;
+	}
 	return (dst);
 }
