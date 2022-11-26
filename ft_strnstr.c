@@ -6,7 +6,7 @@
 /*   By: naokifuse <naokifuse@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 19:50:29 by naokifuse         #+#    #+#             */
-/*   Updated: 2022/11/25 21:40:05 by naokifuse        ###   ########.fr       */
+/*   Updated: 2022/11/26 21:26:29 by naokifuse        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,20 @@
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
-	size_t	j;
 	size_t	s2_len;
+	size_t	i;
 
 	if (*s2 == '\0')
 		return ((char *)s1);
-	i = 0;
+	if (*s1 == '\0' || n == 0)
+		return (NULL);
 	s2_len = ft_strlen(s2);
-	while (i < n)
+	i = 0;
+	while (i + s2_len <= n)
 	{
-		if (*(s1 + i) == *s2)
-		{
-			j = 1;
-			while (*(s1 + i + j) == *(s2 + j))
-			{
-				j++;
-				if (*(s2 + j) == '\0')
-					return ((char *)(s1 + i));
-			}		
-		}
+		if (ft_strncmp(s1 + i, s2, s2_len) == 0)
+			return ((char *)(s1 + i));
 		i++;
-		if (s2_len + i > n)
-			break ;
-	}	
+	}
 	return (NULL);
 }
