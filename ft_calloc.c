@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: naokifuse <naokifuse@student.42.fr>        +#+  +:+       +#+        */
+/*   By: naoki <naoki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 13:01:45 by naokifuse         #+#    #+#             */
-/*   Updated: 2022/11/26 20:52:02 by naokifuse        ###   ########.fr       */
+/*   Updated: 2022/12/02 17:26:27 by naoki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@ void	*ft_calloc(size_t n, size_t size)
 	if (size != 0 && SIZE_MAX / size < n)
 		return (NULL);
 	if (n == 0 || size == 0)
-		return (NULL);
-	ptr = malloc(size * n);
+	{
+		n = 1;
+		size = 1;
+	}
+	ptr = malloc(n * size);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, size * n);
+	ft_bzero(ptr, n * size);
 	return (ptr);
 }

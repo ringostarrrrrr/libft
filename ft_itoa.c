@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: naokifuse <naokifuse@student.42.fr>        +#+  +:+       +#+        */
+/*   By: naoki <naoki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 23:07:53 by naokifuse         #+#    #+#             */
-/*   Updated: 2022/12/01 10:12:20 by naokifuse        ###   ########.fr       */
+/*   Updated: 2022/12/02 16:57:26 by naoki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ char	*ft_itoa(int n)
 
 	cntdigit = my_countdigit(n);
 	ptr = malloc((cntdigit + 1) * sizeof(char));
+	if (!ptr)
+		return (NULL);
 	i = 0;
 	ln = (long)n;
 	if (ln < 0)

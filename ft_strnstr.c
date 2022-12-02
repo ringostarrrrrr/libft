@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: naokifuse <naokifuse@student.42.fr>        +#+  +:+       +#+        */
+/*   By: naoki <naoki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 19:50:29 by naokifuse         #+#    #+#             */
-/*   Updated: 2022/11/26 21:26:29 by naokifuse        ###   ########.fr       */
+/*   Updated: 2022/12/02 16:48:01 by naoki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 
 	if (*s2 == '\0')
 		return ((char *)s1);
-	if (*s1 == '\0' || n == 0)
+	if (n == 0)
+		return (0);
+	if (*s1 == '\0')
 		return (NULL);
 	s2_len = ft_strlen(s2);
 	i = 0;

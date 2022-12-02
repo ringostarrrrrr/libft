@@ -6,7 +6,7 @@
 /*   By: naoki <naoki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 15:25:05 by naoki             #+#    #+#             */
-/*   Updated: 2022/12/02 15:55:37 by naoki            ###   ########.fr       */
+/*   Updated: 2022/12/02 17:16:31 by naoki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int un;
+	unsigned int	un;
 
 	if (n < 0)
 	{
