@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: naoki <naoki@student.42.fr>                +#+  +:+       +#+        */
+/*   By: naokifuse <naokifuse@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 15:25:05 by naoki             #+#    #+#             */
-/*   Updated: 2022/12/02 17:16:31 by naoki            ###   ########.fr       */
+/*   Updated: 2022/12/10 22:01:33 by naokifuse        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putnbr_fd(int n, int fd)
 
 	if (n < 0)
 	{
-		un = (unsigned int)n * -1;
+		un = (unsigned int)(n * -1);
 		ft_putchar_fd('-', fd);
 	}
 	else
