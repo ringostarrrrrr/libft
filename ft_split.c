@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: naoki <naoki@student.42.fr>                +#+  +:+       +#+        */
+/*   By: naokifuse <naokifuse@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 14:01:52 by naokifuse         #+#    #+#             */
-/*   Updated: 2022/11/30 22:15:49 by naoki            ###   ########.fr       */
+/*   Updated: 2022/12/10 19:07:35 by naokifuse        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	**my_free(char **ptr, size_t i)
 			free(ptr[j]);
 			j++;
 		}
-		return (NULL);
+		free (ptr);
 	}
 	return (ptr);
 }
@@ -49,24 +49,23 @@ char	**my_split(char **ptr, char const *s, char c, size_t cntsplit)
 {
 	size_t	i;
 	size_t	cnt_len;
-	char	*tmp;
 
 	i = 0;
-	cnt_len = 0;
 	while (i < cntsplit)
 	{
+		cnt_len = 0;
 		if (*s != c)
 		{
-			tmp = (char *)s;
-			while (*s && *s != c)
-			{
+			while (s[cnt_len] && s[cnt_len] != c)
 				cnt_len++;
-				s++;
+			ptr[i] = ft_substr(s, 0, cnt_len);
+			if (!ptr[i])
+			{
+				my_free(ptr, i);
+				return (NULL);
 			}
-			ptr[i] = ft_substr(tmp, 0, cnt_len);
-			my_free(ptr, i);
 			i++;
-			cnt_len = 0;
+			s += cnt_len;
 		}
 		s++;
 	}
@@ -86,5 +85,7 @@ char	**ft_split(char const *s, char c)
 	if (!ptr)
 		return (NULL);
 	ptr = my_split(ptr, s, c, cntsplit);
+	if (!ptr)
+		return (NULL);
 	return (ptr);
 }
