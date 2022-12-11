@@ -6,7 +6,7 @@
 /*   By: naokifuse <naokifuse@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 09:32:37 by naoki             #+#    #+#             */
-/*   Updated: 2022/11/24 14:40:07 by naokifuse        ###   ########.fr       */
+/*   Updated: 2022/12/11 10:14:31 by naokifuse        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst_len = ft_strlen(dst);
 	if (dstsize <= dst_len)
 		return (dstsize + src_len);
-	if (dstsize <= dst_len + src_len)
-	{
-		ft_strlcpy(dst + dst_len, src, dstsize - dst_len);
-		return (dst_len + src_len);
-	}
-	else
-	{
-		ft_strlcpy(dst + dst_len, src, dstsize - dst_len);
-		return (dst_len + src_len);
-	}
+	ft_strlcpy(dst + dst_len, src, dstsize - dst_len);
+	return (dst_len + src_len);
 }
