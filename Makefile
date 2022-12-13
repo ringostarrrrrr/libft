@@ -42,15 +42,31 @@ SRCS =	ft_bzero.c \
 		ft_putnbr_fd.c
 OBJS = $(SRCS:.c=.o)
 
+B_SRCS=	ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+	 	ft_lstlast.c \
+	 	ft_lstadd_back.c \
+	 	ft_lstdelone.c \
+	 	ft_lstclear.c \
+	 	ft_lstiter.c \
+	 	ft_lstmap.c
+B_OBJS = $(B_SRCS:.c=.o)
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $(ARFLAG) $(NAME) $(OBJS)
 
 clean:
-	$(RM) $(RMFLAGS) $(OBJS)
+	$(RM) $(RMFLAGS) $(OBJS) $(B_OBJS)
 
 fclean: clean
 	$(RM) $(RMFLAGS) $(NAME)
 
 re: fclean all
+
+bonus: $(B_SRCS) $(B_OBJS)
+	$(AR) $(ARFLAG) $(NAME) $(B_OBJS)
+
+.PHONY: all clean fclean re bonus
