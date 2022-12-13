@@ -66,7 +66,7 @@ fclean: clean
 
 re: fclean all
 
-bonus: $(B_SRCS) $(B_OBJS)
-	$(AR) $(ARFLAG) $(NAME) $(B_OBJS)
+bonus: $(OBJS) $(B_OBJS)
+	$(AR) $(ARFLAG) $(NAME) $(OBJS) $(B_OBJS)
 
 .PHONY: all clean fclean re bonus
